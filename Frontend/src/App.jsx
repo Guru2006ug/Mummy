@@ -3,6 +3,10 @@ import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion'
 import { Heart, MailOpen, Stars } from 'lucide-react';
 import './App.css';
 import HeroBg from './assets/MotherDayHero.png';
+import mom1 from './assets/mom1.jpg';
+import mom2 from './assets/mom2.jpg';
+import mom3 from './assets/mom3.jpg';
+import mom4 from './assets/mom4.jpg';
 
 // Fallback images in case the user hasn't added them yet, to prevent broken image icons
 // We'll use the ones they are supposed to upload, but standard HTML img will show broken icon if missing.
@@ -20,22 +24,22 @@ const REASONS = [
 
 const MEMORIES = [
   {
-    src: '/src/assets/mom1.jpg',
+    src: mom1,
     caption: 'Our Strength',
     fallbackColor: '#E8B4B8'
   },
   {
-    src: '/src/assets/mom2.jpg',
+    src: mom2,
     caption: 'Santoor Santoor ma!!',
     fallbackColor: '#F3E5AB'
   },
   {
-    src: '/src/assets/mom3.jpg',
+    src: mom3,
     caption: 'Ashirvad dedo sarkar',
     fallbackColor: '#F4D6D7'
   },
   {
-    src: '/src/assets/mom4.jpg',
+    src: mom4,
     caption: 'Nenu Mummy Lucky Friends...!!',
     fallbackColor: '#C6898D'
   }
@@ -50,9 +54,10 @@ const ImageWithFallback = ({ src, alt, caption, fallbackColor }) => {
       {!error ? (
         <img src={src} alt={alt} onError={() => setError(true)} loading="lazy" />
       ) : (
-        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(255,255,255,0.7)', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'rgba(0,0,0,0.5)', flexDirection: 'column', gap: '10px', padding: '20px', textAlign: 'center' }}>
           <Stars size={32} />
-          <p style={{ fontSize: '14px', fontFamily: 'Inter' }}>Please add {src.split('/').pop()}</p>
+          <p style={{ fontSize: '14px', fontFamily: 'Inter', margin: 0 }}>Image not found</p>
+          <h3 style={{ fontFamily: 'Playfair Display', margin: 0, fontSize: '1.2rem', marginTop: '10px' }}>{caption}</h3>
         </div>
       )}
       <div className="gallery-overlay">
